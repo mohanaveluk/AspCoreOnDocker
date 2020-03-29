@@ -8,8 +8,8 @@ WORKDIR /src
 COPY ["AspCoreOnDocker.csproj", "./"]
 RUN dotnet restore "./AspCoreOnDocker.csproj"
 COPY . .
-WORKDIR "/src"
-RUN dotnet build "AspCoreOnDocker.csproj" -c Release -o /app/build
+#WORKDIR "/src"
+#RUN dotnet build "AspCoreOnDocker.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "AspCoreOnDocker.csproj" -c Release -o /app/publish
